@@ -5,6 +5,7 @@ export async function signup(formData) {
     try {
         const response = await sendRequest(`${url}/signup/`, "POST", formData)
         localStorage.setItem('token', response.access);
+        localStorage.setItem('refreshToken', response.refresh);
         return response.user
     } catch(err) {
         localStorage.removeItem('token');
@@ -17,6 +18,7 @@ export async function login(formData) {
     try {
         const response = await sendRequest(`${url}/login/`, "POST", formData)
         localStorage.setItem('token', response.access);
+        localStorage.setItem('refreshToken', response.refresh);
         console.log(response, "login check response")
         return response.user
     } catch (err) {

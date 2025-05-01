@@ -7,7 +7,7 @@ import { Route, Routes, Link, useLocation, Navigate } from 'react-router';
 
 // COMPONENTS
 import HomePage from "../HomePage";
-import StoryIndexPage from '../StoryIndexPage';
+import CategoryIndexPage from "../CategoryIndexPage";
 import Navbar from "../../components/Navbar/Navbar";
 import SignupPage from "../SignupPage/signup";
 
@@ -38,7 +38,7 @@ function App () {
         {user ?
             <Routes>
                 <Route path="/*" element={<Navigate to="/home" />} />
-                <Route path="/story" element={<StoryIndexPage />} />
+                <Route path="/Category" element={<CategoryIndexPage />} />
             </Routes>
           :
           <Routes>

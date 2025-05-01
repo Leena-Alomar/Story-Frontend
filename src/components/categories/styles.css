@@ -1,0 +1,16 @@
+.category-index-card {
+    width: 90px;
+    height: -10;
+    margin: 10px;
+    margin-left: 2px;
+    background-color: rgb(206, 205, 205);
+    border-radius: 30px;
+    font-size: 10px;
+
+}
+
+.category-index-card-content {
+    padding: 2px;
+    width: 100%;
+    /* background-color: red; */
+}

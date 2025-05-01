@@ -16,14 +16,12 @@ export default function HomePage({ user, setUser }) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value})
   }
 
-
-
   async function handleLogin(evt) {
       try {
         evt.preventDefault();
         const loggedInUser = await usersAPI.login(formData);
         setUser(loggedInUser);
-        navigate("/story");
+        navigate("/category");
       } catch (err) {
         setUser(null);
       }

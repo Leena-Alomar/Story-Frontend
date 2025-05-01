@@ -28,7 +28,7 @@ export default function Navbar({ user, setUser }) {
     if (user)
         return (
             <>
-                <li><Link to="/story">Story</Link></li>
+                <li><Link to="/category">Category</Link></li>
                 <form id="logout-form" onSubmit={handleLogout}>
                     <button type="submit">Log out</button>
                 </form>
