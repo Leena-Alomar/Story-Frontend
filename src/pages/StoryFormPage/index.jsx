@@ -38,13 +38,23 @@ export default function StoryFormPage({ createStory, editStory, deleteStory }) {
     async function handleSubmit(evt) {
         try {
             evt.preventDefault();
-            const newStory = editStory? await storyAPI.update(formData, currStory.id) : await storyAPI.create(formData, categoryId);
-            setFormData(initialState)
-            navigate(`/story/${newStory.id}`)
+    
+            const newStoryData = {...formData, category: categoryId,author: userId,};
+            console.log('New Story Data:', newStoryData);
+
+            const newStory = editStory ? await storyAPI.update(newStoryData, currStory.id): await storyAPI.create(newStoryData);
+            if (newStory && newStory.id) {
+                setFormData(initialState); 
+                navigate(`/story/${newStory.id}`); 
+            } else {
+                console.log("Story creation failed: missing response or ID");
+            }
         } catch (err) {
-            console.log(err)
+            console.log("Error in handleSubmit:", err);
         }
     }
+    
+    
 
     async function handleDelete(evt) {
         try {
