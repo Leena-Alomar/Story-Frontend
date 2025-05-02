@@ -10,7 +10,7 @@ import HomePage from "../HomePage";
 import CategoryIndexPage from "../CategoryIndexPage";
 import Navbar from "../../components/Navbar/Navbar";
 import SignupPage from "../SignupPage/signup";
-
+import StoryFormPage from "../StoryFormPage";
 
 
 import { getUser } from '../../utilities/users-api';
@@ -39,6 +39,10 @@ function App () {
             <Routes>
                 <Route path="/*" element={<Navigate to="/home" />} />
                 <Route path="/Category" element={<CategoryIndexPage />} />
+                <Route path="/story" element={<StoryFormPage />} />
+                <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true} />} />
+                <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} />} />
+                <Route path="/story/confirm_delete/:id" element={<StoryFormPage delete={true} />} />
             </Routes>
           :
           <Routes>

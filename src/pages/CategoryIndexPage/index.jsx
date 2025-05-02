@@ -7,6 +7,7 @@ import * as categoryAPI from "../../utilities/category-api"
 
 export default function CategoryIndexPage() {
   const [allCategories, setAllCategories] = useState([]);
+  
 
   useEffect(() => {
     async function getAllCategories() {
@@ -25,6 +26,8 @@ export default function CategoryIndexPage() {
     <Categories key={c.id} category={c}/>
   ))
 
+
+  
   return (<>
     <section className="index-card-container">
       {displayAllCategories}
