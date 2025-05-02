@@ -14,6 +14,7 @@ import StoryFormPage from "../StoryFormPage";
 
 
 import { getUser } from '../../utilities/users-api';
+
 function App () {
     const [user, setUser] = useState(getUser());
 
@@ -40,7 +41,7 @@ function App () {
                 <Route path="/*" element={<Navigate to="/home" />} />
                 <Route path="/Category" element={<CategoryIndexPage />} />
                 <Route path="/story" element={<StoryFormPage />} />
-                <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true}  />} />
+                <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true} user={user} />} />
                 <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} />} />
                 <Route path="/story/confirm_delete/:id" element={<StoryFormPage delete={true} />} />
             </Routes>

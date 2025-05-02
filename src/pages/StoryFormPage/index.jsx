@@ -8,7 +8,7 @@ import { useParams, Link } from "react-router";
 // APIs
 import * as storyAPI from "../../utilities/story-api";
 
-export default function StoryFormPage({ createStory, editStory, deleteStory }) {
+export default function StoryFormPage({ createStory, editStory, deleteStory , user}) {
     const initialState = { title: "",  description: "", content: ""}
     const [currStory, setCurrStory] = useState(null);
     const [formData, setFormData] = useState(initialState);
@@ -39,7 +39,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory }) {
         try {
             evt.preventDefault();
     
-            const newStoryData = {...formData, category: categoryId,author: userId,};
+            const newStoryData = {...formData, category: categoryId, author: user?.id,};
             console.log('New Story Data:', newStoryData);
 
             const newStory = editStory ? await storyAPI.update(newStoryData, currStory.id): await storyAPI.create(newStoryData);
