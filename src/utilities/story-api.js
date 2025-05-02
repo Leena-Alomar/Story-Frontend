@@ -1,4 +1,5 @@
 import sendRequest from "./sendRequest";
+const url = "/story"
 
 
 export function categoryStory(categoryId) {
@@ -10,10 +11,10 @@ export function create(formData, categoryId) {
 }
 
 
-export async function index() {
-    return sendRequest(url)
-}
+// export async function index() {
+//     return sendRequest(url)
+// }
 
-export async function show(storyId) {
-    return sendRequest(`${url}${storyId}/`)
-}
+// export async function show(storyId) {
+//     return sendRequest(`${url}${storyId}/`)
+// }

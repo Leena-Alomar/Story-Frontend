@@ -10,7 +10,6 @@ export default function Categories({ category }) {
         navigate(`/story/new/${category.id}`);
 
 
-
       };
 
     return (

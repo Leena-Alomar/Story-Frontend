@@ -9,6 +9,7 @@ export default function CategoryIndexPage() {
   const [allCategories, setAllCategories] = useState([]);
   
 
+
   useEffect(() => {
     async function getAllCategories() {
         try {
