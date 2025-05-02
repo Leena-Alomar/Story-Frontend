@@ -1,7 +1,7 @@
 
 // IMPORTS
 import "./App.css";
-import { useState } from "react";
+import {  useEffect, useState } from "react";
 import { Route, Routes, Link, useLocation, Navigate } from 'react-router';
 
 
@@ -17,7 +17,16 @@ import { getUser } from '../../utilities/users-api';
 
 function App () {
     const [user, setUser] = useState(getUser());
+ 
 
+    
+    useEffect(() => {
+      async function fetchUser() {
+          const fetchedUser = await getUser();
+          setUser(fetchedUser);
+      }
+      fetchUser();
+  }, []);
 
   return (
     <>
