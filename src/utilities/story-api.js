@@ -6,10 +6,11 @@ export function categoryStory(categoryId) {
     return sendRequest(`/category/${categoryId}/story/new`)
 }
 
-export function create(formData, categoryId) {
-    return sendRequest(`/category/${categoryId}/story/new`, "POST", formData)
-}
 
+export async function create(formData, categoryId) {
+    return await sendRequest(`/category/${categoryId}/story/new/`, 'POST', formData);
+  }
+  
 
 // export async function index() {
 //     return sendRequest(url)

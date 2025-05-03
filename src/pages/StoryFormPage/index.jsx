@@ -8,7 +8,7 @@ import { useParams, Link } from "react-router";
 // APIs
 import * as storyAPI from "../../utilities/story-api";
 
-export default function StoryFormPage({ createStory, editStory, deleteStory, user }) {
+export default function StoryFormPage({ createStory, editStory, deleteStory, user,}) {
     const initialState = { title: "",  description: "", content: ""}
     const [currStory, setCurrStory] = useState(null);
     const [formData, setFormData] = useState(initialState);
@@ -38,26 +38,27 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
     async function handleSubmit(evt) {
         try {
             evt.preventDefault();
-            
+    
             if (!user || !user.id) {
                 console.log("Error: User is not logged in or does not have an ID.");
-                return; 
+                return;
             }
     
             const newStoryData = {
                 ...formData,
-                category: categoryId,
-                author: user.id,  
+                categoryId: categoryId, 
+                author: user.username,
             };
+    
             console.log('New Story Data:', newStoryData);
     
-            const newStory = editStory 
-                ? await storyAPI.update(newStoryData, currStory.id)
-                : await storyAPI.create(newStoryData, categoryId);
-                
+            const newStory = editStory
+                ? await storyAPI.update(newStoryData, currStory.id, user.token)
+                : await storyAPI.create(newStoryData, categoryId, user.token);
+    
             if (newStory && newStory.id) {
-                setFormData(initialState); 
-                navigate(`/story/${newStory.id}`);  
+                setFormData(initialState);
+                navigate(`/story/${newStory.id}`);
             } else {
                 console.log("Story creation failed: missing response or ID");
             }
@@ -65,8 +66,6 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             console.log("Error in handleSubmit:", err);
         }
     }
-    
-    
     
     
 
