@@ -12,10 +12,10 @@ export async function create(formData, categoryId) {
   }
   
 
-// export async function index() {
-//     return sendRequest(url)
-// }
+export async function index() {
+    return sendRequest(url)
+}
 
-// export async function show(storyId) {
-//     return sendRequest(`${url}${storyId}/`)
-// }
+export async function show(storyId) {
+    return sendRequest(`${url}${storyId}/`)
+}

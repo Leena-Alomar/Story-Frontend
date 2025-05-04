@@ -16,7 +16,7 @@
 
 .login{
 
-    padding: 35px 20px 30px 20px;
+    padding: 35px 30px 30px 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
 }
@@ -27,6 +27,7 @@
     width: 250px;
     border-radius: 20px;
     border-style: none;  
+    margin-right: 90px;
 }
 
 .btn-login{

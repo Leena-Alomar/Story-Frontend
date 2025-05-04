@@ -15,6 +15,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
     const { id, categoryId } = useParams();
     const navigate = useNavigate();
 
+    
     useEffect(() => {
         async function getAndSetDetail() {
             try {

@@ -7,7 +7,7 @@ import { Route, Routes, Link, useLocation, Navigate } from 'react-router';
 
 // COMPONENTS
 import HomePage from "../HomePage";
-import CategoryIndexPage from "../CategoryIndexPage";
+import CategoryIndexPage from "../CategoryIndexPage/CategoryIndexPage";
 import Navbar from "../../components/Navbar/Navbar";
 import SignupPage from "../SignupPage/signup";
 import StoryFormPage from "../StoryFormPage";
