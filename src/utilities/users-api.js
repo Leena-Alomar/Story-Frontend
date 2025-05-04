@@ -1,9 +1,9 @@
 import sendRequest from "./sendRequest";
-const url = "/users"
+const url = "/users/"
 
 export async function signup(formData) {
     try {
-        const response = await sendRequest(`${url}/signup/`, "POST", formData)
+        const response = await sendRequest(`${url}signup/`, "POST", formData)
         localStorage.setItem('token', response.access);
         localStorage.setItem('refreshToken', response.refresh);
         return response.user
@@ -13,10 +13,10 @@ export async function signup(formData) {
     }
 }
 
-// updated login function!
+
 export async function login(formData) {
     try {
-        const response = await sendRequest(`${url}/login/`, "POST", formData)
+        const response = await sendRequest(`${url}login/`, "POST", formData)
         localStorage.setItem('token', response.access);
         localStorage.setItem('refreshToken', response.refresh);
         console.log(response, "login check response")

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useParams, Link } from "react-router";
-
+import "./styles.css";
 // ASSETS
 
 // APIs
@@ -46,7 +46,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
     
             const newStoryData = {
                 ...formData,
-                categoryId: categoryId, 
+                category: categoryId, 
                 author: user.username,
             };
     
@@ -55,7 +55,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             const newStory = editStory
                 ? await storyAPI.update(newStoryData, currStory.id, user.token)
                 : await storyAPI.create(newStoryData, categoryId, user.token);
-    
+            console.log(newStory)
             if (newStory && newStory.id) {
                 setFormData(initialState);
                 navigate(`/story/${newStory.id}`);
@@ -98,30 +98,30 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
     if (editStory && !currStory)  return <h1>Loading</h1>
     if (createStory || editStory) return (<>
         <div className="page-header">
-            {editStory ? <h1>Edit {currStory.title}'s Info</h1> : <h1>Add a Story</h1>}
+            {editStory ? <h1>Edit {currStory.title}'s Info</h1> : <h1 className="add">Add a Story</h1>}
         </div>
         <form className="form-container" onSubmit={handleSubmit}>
             <table>
                 <tbody>
                     {!editStory &&
                         <tr>
-                            <th><label htmlFor="id_title">Title:</label></th>
-                            <td><input value={formData.title} type="text" name="title" maxLength="100" required="" id="id_title" onChange={handleChange} /></td>
+                            <th><label htmlFor="id_title"></label></th>
+                            <td><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" maxLength="100" required="" id="id_title" onChange={handleChange} /></td>
                         </tr>
                     }
                     <tr>
-                        <th><label htmlFor="id_description">Description:</label></th>
+                        <th><label htmlFor="id_description"></label></th>
                         <td>
-                            <textarea value={formData.description} name="description" cols="40" rows="10" maxLength="250" required="" id="id_description" onChange={handleChange}></textarea>
+                            <textarea placeholder="Description:" className="text" value={formData.description} name="description" cols="40" rows="10" maxLength="250" required="" id="id_description" onChange={handleChange}></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <th><label htmlFor="id_content">Content:</label></th>
-                        <td><textarea value={formData.content}  name="content" cols="40" rows="10" maxLength="250" required="" id="id_content" onChange={handleChange} /></td>
+                        <th><label htmlFor="id_content"></label></th>
+                        <td><textarea placeholder="Content:" className="text" value={formData.content}  name="content" cols="40" rows="10" maxLength="250" required="" id="id_content" onChange={handleChange} /></td>
                     </tr>
                 </tbody>
             </table>
-            <button type="submit" className="btn end submit">Submit!</button>
+            <button type="submit" className="btn-end-submit">Submit!</button>
         </form>
     </>)
 }

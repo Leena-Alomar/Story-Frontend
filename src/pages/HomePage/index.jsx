@@ -30,22 +30,22 @@ export default function HomePage({ user, setUser }) {
 
   return (<>
     <section className="logo-container">
-      <div className="home-cat-container">
+      <div className="home-container">
       </div>
     </section>
     {!user &&
       <section>
-        <form onSubmit={handleLogin} className="form-container login">
-          <h1>Login</h1>
+        <form onSubmit={handleLogin} className="form-container-login">
+          <h1 className="login">Login</h1>
           <p>
-            <label htmlFor="id_username">Username:</label>
-            <input value={formData.username} type="text" name="username" maxLength="150" required id="id_username" onChange={handleChange}/>
+            <label htmlFor="id_username"></label>
+            <input  placeholder="User Name" className="in"   value={formData.username} type="text" name="username" maxLength="150" required id="id_username" onChange={handleChange}/>
           </p>
           <p>
-            <label htmlFor="id_password">Password:</label>
-            <input value={formData.password} type="password" name="password" required id="id_password" onChange={handleChange} />
+            <label htmlFor="id_password"></label>
+            <input  placeholder="Password" className="in" value={formData.password} type="password" name="password" required id="id_password" onChange={handleChange} />
           </p>
-          <button type="submit" className="btn submit">Login</button>
+          <button  type="submit" className="btn-login">Login</button>
         </form>
       </section>
     }

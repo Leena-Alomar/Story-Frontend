@@ -22,11 +22,11 @@ function App () {
     
     useEffect(() => {
       async function fetchUser() {
-          const fetchedUser = await getUser();
-          setUser(fetchedUser);
+        const fetchedUser = await getUser();
+        setUser(fetchedUser);
       }
       fetchUser();
-  }, []);
+    }, []);
 
   return (
     <>
