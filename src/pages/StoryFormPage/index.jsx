@@ -47,7 +47,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             const newStoryData = {
                 ...formData,
                 category: categoryId, 
-                author: user.username,
+                
             };
     
             console.log('New Story Data:', newStoryData);

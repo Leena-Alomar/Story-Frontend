@@ -48,7 +48,7 @@ function App () {
       <Route path="/" element={<WelcomePage />} />
       {user ? 
         <>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<HomePage setUser={setUser} />} />
           <Route path="/Category" element={<CategoryIndexPage />} />
           <Route path="/story" element={<StoryFormPage />} />
           <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true} user={user} />} />
