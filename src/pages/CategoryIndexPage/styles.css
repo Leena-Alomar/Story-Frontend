@@ -1,0 +1,10 @@
+.index-card-container {
+    position: absolute;          
+    top: 0;
+    left: 0;
+    height: 190vh;               
+    width: 100vw;               
+    z-index: -1;               
+    background: linear-gradient(to right, rgb(155, 139, 151), rgb(191, 170, 204));
+  }
+  

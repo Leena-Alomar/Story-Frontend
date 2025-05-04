@@ -31,8 +31,16 @@
 }
 
 .btn-login{
-
     width: 90px;
     height: 30px;
-    background-color: rgb(113, 85, 136);
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: rgb(85, 35, 82);
+    height: 37px;
+    width: 130px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 30px;
+    border-style: none;
 }

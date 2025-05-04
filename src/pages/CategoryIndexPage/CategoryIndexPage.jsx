@@ -1,6 +1,6 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
-
+import Navbar from "../../components/Navbar/Navbar";
 import Categories from '../../components/categories/categories'
 
 import * as categoryAPI from "../../utilities/category-api"
@@ -34,7 +34,7 @@ export default function CategoryIndexPage() {
     getAllCategories();
   }, []);
 
-  // Group stories by category
+
   const groupedStories = allCategories.map(category => {
     const storiesInCategory = allStory.filter(story => story.category === category.id);
     return { ...category, stories: storiesInCategory };
@@ -42,6 +42,11 @@ export default function CategoryIndexPage() {
 
   return (
     <section className="index-card-container">
+            <nav>
+        <ul className=" nav1">
+          <Navbar  />
+        </ul>
+      </nav>
       {groupedStories.map(cat => (
         <Categories key={cat.id} category={cat} />
       ))}

@@ -1,10 +1,9 @@
 import "./styles.css"
 
-const Elements = ({ el }) => {
+const Elements = ({ story}) => {
   return (
     <div className="main-card">
-      <img src={el.img} alt={el.imgAlt} width="60" />
-      <p className="des"> {el.title}</p>
+      <p className="des"> {story.title}</p>
     </div>
   );
 };

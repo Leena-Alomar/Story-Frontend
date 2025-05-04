@@ -32,20 +32,38 @@
     gap: 10px;               
     z-index: 2;
     margin-top: 280px;
-    margin-right:260px ;
+    margin-right:240px ;
   }
   
- 
-.btnn button{
-    background-color: rgb(255, 255, 255);
-    height: 37px;
-    width: 130px;
-    color: rgb(104, 43, 81);
-    font-weight: 700;
-    font-size: 14px;
+
+.btn1{
+  background-color: rgb(255, 255, 255);
+  height: 37px;
+  width: 130px;
+  color: rgb(104, 43, 81);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 30px;
+  height: 40px;
+  width: 150px;
+  border-style: none;
+
 }
 
+.btn2{
+  background-color: rgb(255, 255, 255);
+  height: 37px;
+  width: 130px;
+  color: rgb(104, 43, 81);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 30px;
+  height: 40px;
+  width: 150px;
+  border-style: none;
 
+
+}
 .Read{
     margin-top: -180px;
     margin-left: 50px;

@@ -1,36 +1,44 @@
 // imports
 import "./styles.css";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router-dom"; 
+
 
 // APIs
 import * as usersAPI from "../../utilities/users-api";
 
 export default function Navbar({ user, setUser }) {
-    const navigate = useNavigate();
-    function handleLogout() {
-        usersAPI.logout()
-        setUser(null);
-        navigate("/")
-    }
+  const navigate = useNavigate();
 
-    if (!user) {
-        return (
-            <>
+  function handleLogout(e) {
+    e.preventDefault(); 
+    usersAPI.logout();
+    setUser(null);
+    navigate("/");
+  }
 
-                {/* <li><Link to="/signup">SignUp</Link></li>
-                <li><Link to="/home">Home</Link></li> */}
-            </>
-        )
-    }
+  if (!user) {
+    return (
+      <>
 
-    if (user)
-        return (
-            <>
-                <li><Link to="/category">Category</Link></li>
-                <form id="logout-form" onSubmit={handleLogout}>
-                    <button type="submit">Log out</button>
-                </form>
-            </>
-        )
+        
+        
+        <ul>
+          <li>
+           
+            <Link to="/category">Stories</Link>
+          </li> 
+        </ul>
 
+        <form id="logout-form" onSubmit={handleLogout}>
+          <button className="submit" type="submit">Log out</button>
+        </form>
+      </>
+    );
+  }
+
+  return (
+    <>
+
+    </>
+  );
 }

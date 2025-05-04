@@ -37,11 +37,6 @@ function App () {
           {/* <img src={headerLogo} alt="The Cat Collector Logo" /> */}
         </Link>
       </div>
-      {/* <nav>
-        <ul className=" nav1">
-          <Navbar user={user} setUser={setUser} />
-        </ul>
-      </nav> */}
       </header>
 
       <Routes>
@@ -55,6 +50,7 @@ function App () {
           <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} />} />
           <Route path="/story/confirm_delete/:id" element={<StoryFormPage delete={true} />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />} />
         </>
         : 
         <>
