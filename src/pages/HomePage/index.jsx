@@ -2,6 +2,7 @@
 import "./styles.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+
 // IMAGES
 
 // APIs
@@ -11,7 +12,7 @@ import * as usersAPI from "../../utilities/users-api";
 export default function HomePage({ user, setUser }) {
   const initialState = { username: "", password: "" }
   const [formData, setFormData] = useState(initialState)
-
+  const navigate = useNavigate();
   function handleChange(evt) {
     setFormData({ ...formData, [evt.target.name]: evt.target.value})
   }

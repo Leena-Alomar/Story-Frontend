@@ -1,6 +1,6 @@
 import "./styles.css";
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // ✅ Use this, not 'react-router'
+import { useNavigate } from 'react-router-dom';  
 import Read from "../../assets/images/pic11.png";
 import Read1 from "../../assets/images/pic33.png";
 
