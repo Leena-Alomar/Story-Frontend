@@ -17,5 +17,5 @@ export async function index() {
 }
 
 export async function show(storyId) {
-    return sendRequest(`${url}${storyId}/`)
+    return sendRequest(`${url}/${storyId}/`)
 }

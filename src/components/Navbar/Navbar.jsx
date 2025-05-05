@@ -9,23 +9,23 @@ import * as usersAPI from "../../utilities/users-api";
 export default function Navbar({ user, setUser }) {
   const navigate = useNavigate();
 
+
+  
   function handleLogout(e) {
     e.preventDefault(); 
     usersAPI.logout();
-    setUser(null);
+    setUser();
     navigate("/");
   }
 
   if (!user) {
     return (
-      <>
-
-        
-        
+      <>   
         <ul>
           <li>
            
-            <Link to="/category">Stories</Link>
+            <Link className="links" to="/category">Stories</Link>
+            <Link className="links" to="/category">Favorites</Link>
           </li> 
         </ul>
 

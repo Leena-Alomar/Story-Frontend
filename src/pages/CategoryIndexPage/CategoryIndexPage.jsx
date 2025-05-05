@@ -1,14 +1,18 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import Categories from '../../components/categories/categories'
+import Categories from '../../components/categories/categories';
+import { Routes, Route, useNavigate } from "react-router-dom";
 
-import * as categoryAPI from "../../utilities/category-api"
+
+import * as categoryAPI from "../../utilities/category-api";
 import * as storyAPI from "../../utilities/story-api";
 
 export default function CategoryIndexPage() {
   const [allCategories, setAllCategories] = useState([]);
   const [allStory, setAllStory] = useState([]);
+  const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     async function getAllStory() {
@@ -34,22 +38,29 @@ export default function CategoryIndexPage() {
     getAllCategories();
   }, []);
 
-
   const groupedStories = allCategories.map(category => {
     const storiesInCategory = allStory.filter(story => story.category === category.id);
     return { ...category, stories: storiesInCategory };
   });
 
+  function getStoryByCategory(storyId) {
+    return allStory.find(story => story._id === storyId);
+  }
+
   return (
     <section className="index-card-container">
-            <nav>
-        <ul className=" nav1">
-          <Navbar  />
+      <nav>
+        <ul className="nav1">
+          
+        <Navbar user={user} setUser={setUser} />
         </ul>
       </nav>
+
       {groupedStories.map(cat => (
         <Categories key={cat.id} category={cat} />
       ))}
+
+
     </section>
   );
 }

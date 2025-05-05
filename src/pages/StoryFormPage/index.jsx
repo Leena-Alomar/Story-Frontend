@@ -57,7 +57,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 ? await storyAPI.update(newStoryData, currStory.id, user.token)
                 : await storyAPI.create(newStoryData, categoryId, user.token);
             console.log(newStory)
-            if (newStory && newStory.id) {
+            if (newStory.id) {
                 setFormData(initialState);
                 navigate(`/story/${newStory.id}`);
             } else {
