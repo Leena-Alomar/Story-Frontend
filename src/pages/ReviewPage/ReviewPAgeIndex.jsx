@@ -39,8 +39,8 @@ const ReviewPAgeIndex = () => {
         }
 
         try {
-            const newReviewData = { content: formData.reviewContent, story: storyId };
-            const newReview = await reviewAPI.create(newReviewData, user.token);
+            const newReviewData = { content: formData.reviewContent, story_id: storyId };
+            const newReview = await reviewAPI.create(newReviewData, storyId);
             if (newReview && newReview.id) {
                 setAllReviews([newReview, ...getAllReviews]); 
                 setFormData({ reviewContent: "" }); 

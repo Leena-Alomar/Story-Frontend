@@ -11,6 +11,10 @@ export async function create(formData, storyId) {
     return await sendRequest(`/story/${storyId}/review/new/`, 'POST', formData);
   }
   
+export async function getReviewsByStory(storyId) {
+    return await sendRequest(`/story/${storyId}/review/new/`,'GET');
+  }
+  
 
 export async function index() {
     return sendRequest(url)
