@@ -23,3 +23,7 @@ export async function index() {
 export async function show(reviewId) {
     return sendRequest(`${url}/${reviewId}/`)
 }
+
+export async function  deleteReview(reviewId) {
+    return sendRequest(`${url}/${reviewId}/`,'DELETE')
+}

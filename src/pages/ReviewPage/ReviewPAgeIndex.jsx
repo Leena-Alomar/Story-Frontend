@@ -9,15 +9,16 @@ const ReviewPAgeIndex = () => {
     const [formData, setFormData] = useState({ reviewContent: "" });
     const [user, setUser] = useState({ id: "user-id" }); 
 
-    useEffect(() => {
-        async function fetchReviews() {
-            try {
-                const reviews = await reviewAPI.getReviewsByStory(storyId);
-                setAllReviews(reviews);
-            } catch (err) {
-                console.error("Error fetching reviews:", err);
-            }
+
+    async function fetchReviews() {
+        try {
+            const reviews = await reviewAPI.getReviewsByStory(storyId);
+            setAllReviews([...reviews]);
+        } catch (err) {
+            console.error("Error fetching reviews:", err);
         }
+    }
+    useEffect(() => {
         fetchReviews();
     }, [storyId]);
 
@@ -41,16 +42,29 @@ const ReviewPAgeIndex = () => {
         try {
             const newReviewData = { content: formData.reviewContent, story_id: storyId };
             const newReview = await reviewAPI.create(newReviewData, storyId);
-            if (newReview && newReview.id) {
-                setAllReviews([newReview, ...getAllReviews]); 
+            console.log(newReview)
+            try{
+                await fetchReviews();
                 setFormData({ reviewContent: "" }); 
-            } else {
-                console.log("Review creation failed: no ID in response.");
+            } catch(err){
+                console.log(err)
             }
         } catch (err) {
             console.error("Error in handleSubmit:", err);
         }
     };
+
+        async function handleDelete(evt,reviewId) {
+            evt.preventDefault();
+            try {
+                const response = await reviewAPI.deleteReview(reviewId);
+                if (response.success) {
+                    fetchReviews()
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
 
     return (
         <div>
@@ -58,6 +72,7 @@ const ReviewPAgeIndex = () => {
             <div className="scroll">
                 <textarea  className="text" name="reviewContent" placeholder="Enter your review here..." value={formData.reviewContent} onChange={handleChange}></textarea>
                 <button className="sbtn" onClick={handleSubmit}>Submit</button>
+               
             </div>
             <div className="reviews">
                 <h2 className='title-review'>Reviews</h2>
@@ -65,7 +80,7 @@ const ReviewPAgeIndex = () => {
                 <ul>
                 {getAllReviews.map((review) => (
                     <li key={review.id} className="review-item">
-                        <p>{review.content}</p>
+                        <p className='con'>{review.content}</p> <button  className="sbtn" onClick={(e) =>{handleDelete(e, review.id)}}>Delete</button>
                     </li> ))}
                 </ul>
                 ) : (

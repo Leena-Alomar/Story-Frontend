@@ -21,7 +21,7 @@ export default function Navbar({ user, setUser }) {
   if (!user) {
     return (
       <>   
-        <ul>
+        <ul className="navul">
           <li>
            
             <Link className="links" to="/category">Stories</Link>
