@@ -42,6 +42,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
     async function handleSubmit(evt) {
         evt.preventDefault();
         if (!user || !user.id) {
+            console.log(user)
             console.log("Error: User is not logged in or does not have an ID.");
             return;
         }
@@ -49,13 +50,19 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
         setFormData(initialState);
 
         try {
-            const newStoryData = { ...formData, category: categoryId };
+            let catId
+            categoryId ? catId = categoryId : catId = currStory.category 
+            const newStoryData = { ...formData, category: catId};
+            // const newStoryData = { ...formData, category: categoryId };
             const newStory = editStory
                 ? await storyAPI.update(newStoryData, currStory.id, user.token)
                 : await storyAPI.create(newStoryData, categoryId, user.token);
-
-            if (newStory && newStory.id) {
+            console.log('response', newStory)
+            console.log('formData',newStoryData)
+            if (newStory.id) {
                 navigate(`/story/${newStory.id}`);
+            } else if (newStory[newStory.length-1].id) {
+                navigate(`/story/${newStory[newStory.length-1].id}`);
             } else {
                 console.log("Story creation/edit failed: no ID in response.");
             }

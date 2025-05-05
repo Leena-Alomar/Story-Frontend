@@ -19,3 +19,7 @@ export async function index() {
 export async function show(storyId) {
     return sendRequest(`${url}/${storyId}/`)
 }
+
+export async function update(formData,storyId) {
+    return sendRequest(`${url}/${storyId}/`,'PUT',formData)
+}

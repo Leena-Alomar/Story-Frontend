@@ -41,8 +41,8 @@ function App() {
             <Route path="/Category" element={<CategoryIndexPage />} />
             <Route path="/story" element={<StoryFormPage />} />
             <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true} user={user} />} />
-            <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} />} />
-            <Route path="/story/confirm_delete/:id" element={<StoryFormPage deleteStory={true} />} />
+            <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} user={user} />} />
+            <Route path="/story/confirm_delete/:id" element={<StoryFormPage deleteStory={true} user={user}  />} />
             <Route path="/story/:id" element={<StoryDetail user={user} setUser={setUser} />} />
             <Route path="/story/:id/review/new" element={<ReviewPage user={user} />} />
 
