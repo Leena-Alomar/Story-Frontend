@@ -1,9 +1,7 @@
 
-// IMPORTS
 import "./App.css";
-import {  useEffect, useState } from "react";
-import { Route, Routes, Link, useLocation, Navigate } from 'react-router';
-
+import { useEffect, useState } from "react";
+import { Route, Routes, Link, useLocation, Navigate } from "react-router-dom";
 
 // COMPONENTS
 import HomePage from "../HomePage";
@@ -12,59 +10,55 @@ import SignupPage from "../SignupPage/signup";
 import StoryFormPage from "../StoryFormPage";
 import WelcomePage from "../WelcomePage/welcome";
 import StoryDetail from "../StoryDetailPage/StoryDetailIndex";
+import ReviewPage from "../ReviewPage/ReviewPAgeIndex";  
 
+import { getUser } from "../../utilities/users-api";
 
-import { getUser } from '../../utilities/users-api';
+function App() {
+  const [user, setUser] = useState(getUser());
 
-function App () {
-    const [user, setUser] = useState(getUser());
- 
-
-    
-    useEffect(() => {
-      async function fetchUser() {
-        const fetchedUser = await getUser();
-        setUser(fetchedUser);
-      }
-      fetchUser();
-    }, []);
+  useEffect(() => {
+    async function fetchUser() {
+      const fetchedUser = await getUser();
+      setUser(fetchedUser);
+    }
+    fetchUser();
+  }, []);
 
   return (
     <>
-   
-    <header>
-      <div className={`header-logo-container`}>
-      </div>
+      <header>
+        <div className={`header-logo-container`}></div>
       </header>
 
       <Routes>
-      <Route path="/" element={<WelcomePage />} />
-      {user ? 
-        <>
-          <Route path="/home" element={<HomePage setUser={setUser} />} />
-          <Route path="/Category" element={<CategoryIndexPage />} />
-          <Route path="/story" element={<StoryFormPage />} />
-          <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true} user={user} />} />
-          <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} />} />
-          <Route path="/story/confirm_delete/:id" element={<StoryFormPage deleteStory={true} />} /> 
-          <Route path="/story/:id" element={<StoryDetail user={user} setUser={setUser} />} />
-          <Route path="*" element={<Navigate to="/" />} />
-          <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />} />
-         
-        </>
-        : 
-        <>
-          <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />} />
-          <Route path="/home" element={<HomePage user={user} setUser={setUser} />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </>
-      }
-    </Routes>
+        <Route path="/" element={<WelcomePage />} />
+        
+        {user ? (
+          <>
+  
+            <Route path="/home" element={<HomePage setUser={setUser} />} />
+            <Route path="/Category" element={<CategoryIndexPage />} />
+            <Route path="/story" element={<StoryFormPage />} />
+            <Route path="/story/new/:categoryId" element={<StoryFormPage createStory={true} user={user} />} />
+            <Route path="/story/edit/:id" element={<StoryFormPage editStory={true} />} />
+            <Route path="/story/confirm_delete/:id" element={<StoryFormPage deleteStory={true} />} />
+            <Route path="/story/:id" element={<StoryDetail user={user} setUser={setUser} />} />
+            <Route path="/story/:id/review/new" element={<ReviewPage user={user} />} />
 
-                
+            <Route path="*" element={<Navigate to="/" />} />
+          </>
+        ) : (
+          <>
+
+            <Route path="/signup" element={<SignupPage user={user} setUser={setUser} />} />
+            <Route path="/home" element={<HomePage user={user} setUser={setUser} />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </>
+        )}
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;
