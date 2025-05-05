@@ -20,7 +20,7 @@ export default function Categories({ category }) {
       <div className="stories-scroll-container">
         {category.stories.map(story => (
           <div className="story-cards">  
-            <Link to={`/story/${story._id}`} className="story-link">
+            <Link to={`/story/${story.id}`} className="story-link">
             <h4 className="title">{story.title}</h4>
             </Link>
             <h4 className="des">{story.description}</h4>
