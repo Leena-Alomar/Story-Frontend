@@ -22,7 +22,16 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 setFormData(initialState);
             }
         }
-        if ((editStory || deleteStory) && id) getAndSetDetail();
+
+        if ((editStory || deleteStory) && id) {
+            getAndSetDetail();
+        } else {
+            setFormData(initialState);
+        }
+
+        return () => {
+            setFormData(initialState);
+        };
     }, [id, editStory, deleteStory]);
 
     function handleChange(evt) {
@@ -37,6 +46,8 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             return;
         }
 
+        setFormData(initialState);
+
         try {
             const newStoryData = { ...formData, category: categoryId };
             const newStory = editStory
@@ -44,7 +55,6 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 : await storyAPI.create(newStoryData, categoryId, user.token);
 
             if (newStory && newStory.id) {
-                setFormData(initialState);
                 navigate(`/story/${newStory.id}`);
             } else {
                 console.log("Story creation/edit failed: no ID in response.");
@@ -67,7 +77,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
         }
     }
 
-    //  delete view
+    // DELETE view
     if (deleteStory) {
         if (!currStory) return <h1>Loading...</h1>;
         return (
@@ -82,25 +92,25 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
         );
     }
 
-    // create or edit view
+    // CREATE or EDIT view
     if (createStory || editStory) {
         if (editStory && !currStory) return <h1>Loading...</h1>;
         return (
             <>
                 <div className="page-header">{editStory ? <h1>Edit "{currStory?.title}"</h1> : <h1 className="add">Add a Story</h1>}</div>
                 <form className="form-container" onSubmit={handleSubmit}>
-                    <table><tbody>
-                        {!editStory && <tr><th><label htmlFor="id_title"></label></th><td><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" maxLength="100" required id="id_title" onChange={handleChange} /></td></tr>}
-                        <tr><th><label htmlFor="id_description"></label></th><td><textarea placeholder="Description:" className="text" value={formData.description} name="description" maxLength="250" required id="id_description" onChange={handleChange}></textarea></td></tr>
-                        <tr><th><label htmlFor="id_content"></label></th><td><textarea placeholder="Content:" className="text" value={formData.content} name="content" maxLength="250" required id="id_content" onChange={handleChange}></textarea></td></tr>
-                    </tbody></table>
+                    {!editStory && (
+                        <div><label htmlFor="id_title"></label><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" maxLength="100" required id="id_title" onChange={handleChange} /></div>
+                    )}
+                    <div><label htmlFor="id_description"></label><textarea placeholder="Description:" className="text" value={formData.description} name="description" maxLength="250" required id="id_description" onChange={handleChange}></textarea></div>
+                    <div><label htmlFor="id_content"></label><textarea placeholder="Content:" className="text" value={formData.content} name="content" maxLength="250" required id="id_content" onChange={handleChange}></textarea></div>
                     <button type="submit" className="btn-end-submit">Submit!</button>
                 </form>
             </>
         );
     }
 
-    //  Read only view
+    // READ-ONLY view
     if (!currStory) return <h1>Loading...</h1>;
 
     return (
