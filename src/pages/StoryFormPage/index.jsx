@@ -77,7 +77,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             const response = await storyAPI.deleteStory(currStory.id);
             if (response.success) {
                 setFormData(initialState);
-                navigate("/story");
+                navigate("/category");
             }
         } catch (err) {
             console.log(err);
@@ -92,8 +92,8 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 <div className="page-header"><h1>Delete Story?</h1></div>
                 <h2>Are you sure you want to delete "{currStory.title}"?</h2>
                 <form onSubmit={handleDelete}>
-                    <Link to={`/story/${currStory.id}`} className="btn secondary">Cancel</Link>
-                    <button type="submit" className="btn danger">Yes - Delete!</button>
+                    <Link to={`/story/${currStory.id}`} className="btn-secondary">Cancel</Link>
+                    <button type="submit" className="submit-yes">Yes - Delete!</button>
                 </form>
             </>
         );

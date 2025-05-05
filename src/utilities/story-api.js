@@ -23,3 +23,7 @@ export async function show(storyId) {
 export async function update(formData,storyId) {
     return sendRequest(`${url}/${storyId}/`,'PUT',formData)
 }
+
+export async function  deleteStory(storyId) {
+    return sendRequest(`${url}/${storyId}/`,'DELETE')
+}
