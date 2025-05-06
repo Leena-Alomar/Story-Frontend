@@ -17,10 +17,9 @@ export default function Navbar({ user, setUser }) {
     setUser();
     navigate("/");
   }
-
-  if (!user) {
+  if (user) {
     return (
-      <>   
+        <>
         <ul className="navul">
           <li>
            
@@ -32,6 +31,17 @@ export default function Navbar({ user, setUser }) {
         <form id="logout-form" onSubmit={handleLogout}>
           <button className="submit" type="submit">Log out</button>
         </form>
+        </>
+    )
+}
+
+  if (!user) {
+    return (
+      <>   
+      
+        {/* <Link className="links1" to="/category">Home</Link>
+        <Link className="links1" to="/category">Contact</Link>
+        <Link className="links1" to="/category">About</Link> */}
       </>
     );
   }

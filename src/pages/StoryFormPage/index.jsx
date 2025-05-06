@@ -4,9 +4,10 @@ import "./styles.css";
 import * as storyAPI from "../../utilities/story-api";
 
 export default function StoryFormPage({ createStory, editStory, deleteStory, user }) {
-    const initialState = { title: "", description: "", content: "" };
+    const initialState = { title: "", description: "", content: "", photoUrl: "" };
     const [currStory, setCurrStory] = useState(null);
     const [formData, setFormData] = useState(initialState);
+    const [photoUrl, setPhotoUrl] = useState("");
     const { id, categoryId } = useParams();
     const navigate = useNavigate();
 
@@ -16,10 +17,12 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 const story = await storyAPI.show(id);
                 setCurrStory(story);
                 setFormData(story);
+                setPhotoUrl(story.photoUrl || "");
             } catch (err) {
                 console.log(err);
                 setCurrStory(null);
                 setFormData(initialState);
+                setPhotoUrl("");
             }
         }
 
@@ -27,10 +30,12 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             getAndSetDetail();
         } else {
             setFormData(initialState);
+            setPhotoUrl("");
         }
 
         return () => {
             setFormData(initialState);
+            setPhotoUrl("");
         };
     }, [id, editStory, deleteStory]);
 
@@ -59,6 +64,9 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 : await storyAPI.create(newStoryData, categoryId, user.token);
             console.log('response', newStory)
             console.log('formData',newStoryData)
+            
+            setFormData(initialState);
+            setPhotoUrl("");
             if (newStory.id) {
                 navigate(`/story/${newStory.id}`);
             } else if (newStory[newStory.length-1].id) {
@@ -77,6 +85,7 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             const response = await storyAPI.deleteStory(currStory.id);
             if (response.success) {
                 setFormData(initialState);
+                setPhotoUrl("");
                 navigate("/category");
             }
         } catch (err) {
@@ -109,6 +118,8 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                     {!editStory && (
                         <div><label htmlFor="id_title"></label><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" maxLength="100" required id="id_title" onChange={handleChange} /></div>
                     )}
+                    <input type="text" value={formData.photoUrl} onChange={handleChange} placeholder="Enter image URL" name="photo_url"/>
+                    
                     <div><label htmlFor="id_description"></label><textarea placeholder="Description:" className="text" value={formData.description} name="description" maxLength="250" required id="id_description" onChange={handleChange}></textarea></div>
                     <div><label htmlFor="id_content"></label><textarea placeholder="Content:" className="text" value={formData.content} name="content" maxLength="250" required id="id_content" onChange={handleChange}></textarea></div>
                     <button type="submit" className="btn-end-submit">Submit!</button>

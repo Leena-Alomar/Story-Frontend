@@ -1,34 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Darumadrop+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Exa:wght@100..900&family=Lexend+Mega:wght@100..900&family=Lilita+One&family=Limelight&family=Luckiest+Guy&family=Madimi+One&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sigmar&family=Titan+One&family=Ultra&family=VT323&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Darumadrop+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Exa:wght@100..900&family=Lexend+Mega:wght@100..900&family=Lilita+One&family=Limelight&family=Luckiest+Guy&family=Madimi+One&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sigmar&family=Titan+One&family=Ultra&family=VT323&family=Varela+Round&display=swap');
 .Read1 {
     position: absolute;
     top: 0;
     right: 0;
-    height: 740px;
+    height: 500px;
     width: auto;
     margin: 0;
     padding: 0;
     z-index: 0;
-    margin-right: -60px;
+    margin-right: 20px;
+    margin-top: 80px;
   }
   
   .head {
-    position: relative; 
-    text-align: right;
-    color: rgb(255, 255, 255);
-    font-family: 'Pacifico';
+    position: absolute; 
+    top: 240px;          
+    margin-left: 160px;
+    color: rgb(21, 23, 61);
+    font-family: 'Rubik';
     z-index: 2;
-    margin-right: 110px;
-    margin-top: 180px;
-    font-size: 45px;
-    font-weight: 400;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  .par{
+    z-index: 1;
+    font-size: 14px;
+    font-family: 'Rubik';
+    font-weight: 300;
+    position: absolute;
+    text-align: center;
+    margin-left: 120px;
+    margin-top: -10px;
   }
   
   .btnn {
     position: absolute;     
-    top: 20px;
-    right: 30px;
+    top: 170px;
+    left: 230px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: row; 
     gap: 10px;               
     z-index: 2;
     margin-top: 280px;
@@ -37,23 +48,22 @@
   
 
 .btn1{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(87, 55, 97);
   height: 37px;
   width: 130px;
-  color: rgb(104, 43, 81);
+  color: rgb(255, 255, 255);
   font-weight: 700;
   font-size: 14px;
   border-radius: 30px;
   height: 40px;
   width: 150px;
   border-style: none;
+  font-size: 16px;
 
 }
 
 .btn2{
   background-color: rgb(255, 255, 255);
-  height: 37px;
-  width: 130px;
   color: rgb(104, 43, 81);
   font-weight: 700;
   font-size: 14px;
@@ -61,12 +71,35 @@
   height: 40px;
   width: 150px;
   border-style: none;
+  font-size: 19px;
 
 
 }
-.Read{
-    margin-top: -180px;
-    margin-left: 50px;
-    height: 470px;
-    width: 500px;
+.Read {
+  position: absolute; 
+  margin-top: -370px;
+  margin-left: -25px;
+  height: 310px;
+  width: 330px;
+  z-index: 1;             
+}
+
+.book-con {
+  background-color: rgb(207, 107, 194);
+  height: 550px;
+  width: 430px;
+  margin-left: 900px;
+  transform: rotate(40deg);
+  margin-top: -180px;
+}
+
+.book2-con {
+  background-color: rgb(252, 214, 241);
+  height: 330px;
+  width: 330px;
+  position: absolute;   
+  margin-left: -60px;
+  margin-top: -180px;
+  transform: rotate(40deg);
+  z-index: 0;             
 }

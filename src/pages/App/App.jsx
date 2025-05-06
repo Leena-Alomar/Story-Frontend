@@ -11,6 +11,8 @@ import StoryFormPage from "../StoryFormPage";
 import WelcomePage from "../WelcomePage/welcome";
 import StoryDetail from "../StoryDetailPage/StoryDetailIndex";
 import ReviewPage from "../ReviewPage/ReviewPAgeIndex";  
+// import Navbar from "../../components/Navbar/Navbar";
+import LikePage from "../LikePage/LikePageIndex";
 
 import { getUser } from "../../utilities/users-api";
 
@@ -30,7 +32,12 @@ function App() {
       <header>
         <div className={`header-logo-container`}></div>
       </header>
-
+            {/* <nav>
+              <ul className="nav1">
+                
+              <Navbar user={user} setUser={setUser} />
+              </ul>
+            </nav> */}
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         
@@ -45,7 +52,7 @@ function App() {
             <Route path="/story/confirm_delete/:id" element={<StoryFormPage deleteStory={true} user={user}  />} />
             <Route path="/story/:id" element={<StoryDetail user={user} setUser={setUser} />} />
             <Route path="/story/:id/review/new" element={<ReviewPage user={user} />} />
-
+            <Route path="/story/:id/like/new" element={<LikePage user={user} />} />
             <Route path="*" element={<Navigate to="/" />} />
           </>
         ) : (

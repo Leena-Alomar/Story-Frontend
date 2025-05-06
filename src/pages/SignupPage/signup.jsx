@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./styles.css";
 // IMAGES
-
+import Reading from "../../assets/images/reading.png";
 // APIs
 import * as usersAPI from "../../utilities/users-api.js"
 
@@ -53,9 +53,11 @@ export default function SignupPage({ setUser }) {
 
     return (<>
         <div className="page-header">
-            <h1 className="signup">Sign Up</h1>
+            <img className="Reading" src={Reading} alt="read1 icon" />
+         
         </div>
-        <form onSubmit={handleSubmit} className="form-container-signup">
+        <form onSubmit={handleSubmit} className="form-container-signup">  
+             <h1 className="signup">Get Started !</h1>
             <table>
                 <tbody>
                     <tr>

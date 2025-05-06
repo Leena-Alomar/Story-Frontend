@@ -42,3 +42,17 @@ li a{
 
     color: #000000;
 }
+
+.links2 {
+
+    padding: 10px;
+    margin-left: 20px;
+    color: #000000;
+  }
+  
+  .links2 a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+  }
+  
