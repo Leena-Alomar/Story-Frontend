@@ -24,12 +24,9 @@ export default function Categories({ category }) {
       <div className="stories-scroll-container">
         {category.stories.map(story => (
           <div className="story-cards">  
-           <img src={story.photo_url} alt="Story" className="story-image" />
-            <Link to={`/story/${story.id}`} className="story-link">
-            <h4 className="title">{story.title}</h4>
-            </Link>
+               <Link to={`/story/${story.id}`} className="story-link"><img src={story.photo_url} alt="Story" className="story-image" /></Link>
+            <h4 className="title-story">{story.title}</h4>
             <p className="des">{story.author.username}</p>
-            <h4 className="des">{story.description}</h4>
           </div>
         
         ))}

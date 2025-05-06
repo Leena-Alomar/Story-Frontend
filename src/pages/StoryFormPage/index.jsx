@@ -116,12 +116,12 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
                 <div className="page-header">{editStory ? <h1>Edit "{currStory?.title}"</h1> : <h1 className="add">Add a Story</h1>}</div>
                 <form className="form-container" onSubmit={handleSubmit}>
                     {!editStory && (
-                        <div><label htmlFor="id_title"></label><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" maxLength="100" required id="id_title" onChange={handleChange} /></div>
+                        <div><label htmlFor="id_title"></label><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" required id="id_title" onChange={handleChange} /></div>
                     )}
                     <input type="text" value={formData.photoUrl} onChange={handleChange} placeholder="Enter image URL" name="photo_url"/>
                     
                     <div><label htmlFor="id_description"></label><textarea placeholder="Description:" className="text" value={formData.description} name="description" maxLength="250" required id="id_description" onChange={handleChange}></textarea></div>
-                    <div><label htmlFor="id_content"></label><textarea placeholder="Content:" className="text" value={formData.content} name="content" maxLength="250" required id="id_content" onChange={handleChange}></textarea></div>
+                    <div><label htmlFor="id_content"></label><textarea placeholder="Content:" className="text" value={formData.content} name="content"  required id="id_content" onChange={handleChange}></textarea></div>
                     <button type="submit" className="btn-end-submit">Submit!</button>
                 </form>
             </>
@@ -138,8 +138,8 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             <p>{currStory.content}</p>
             {user && user.id === currStory.authorId && (
                 <div className="action-links">
-                    <Link to={`/story/${currStory.id}/edit`} className="btn">Edit</Link>
-                    <Link to={`/story/${currStory.id}/delete`} className="btn danger">Delete</Link>
+                    <Link to={`/story/${currStory.id}/edit`} className="btn-edit">Edit</Link>
+                    <Link to={`/story/${currStory.id}/delete`} className="btn-delete">Delete</Link>
                 </div>
             )}
         </div>

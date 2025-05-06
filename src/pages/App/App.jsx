@@ -34,7 +34,7 @@ function App() {
       </header>
             {/* <nav>
               <ul className="nav1">
-                
+            
               <Navbar user={user} setUser={setUser} />
               </ul>
             </nav> */}

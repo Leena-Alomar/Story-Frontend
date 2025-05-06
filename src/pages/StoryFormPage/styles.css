@@ -70,3 +70,9 @@
     border-style: none;
     border-radius: 30px;
 }
+
+.btn-edit{
+    background-color: rgb(172, 250, 94);
+    height: 50px;
+    width: 70px;
+}

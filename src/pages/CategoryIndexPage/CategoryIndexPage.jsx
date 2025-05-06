@@ -1,6 +1,5 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import Categories from '../../components/categories/categories';
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -67,12 +66,6 @@ export default function CategoryIndexPage() {
 
   return (
     <section className="index-card-container">
-      <nav>
-        <ul className="nav1">
-          
-        <Navbar user={user} setUser={setUser} />
-        </ul>
-      </nav>
 
       {groupedStories.map(cat => (
         <Categories key={cat.id} category={cat} />

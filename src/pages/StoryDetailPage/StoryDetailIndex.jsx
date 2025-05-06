@@ -3,6 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import "./styles.css";
 import * as storyAPI from "../../utilities/story-api";
 // import * as likeAPI from "../../utilities/like-api"; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment, faPenToSquare , faTrashCan} from '@fortawesome/free-solid-svg-icons';
+
+
+
 
 export default function StoryDetailPage({ user }) {
   const [StoryDetail, setStoryDetail] = useState(null);
@@ -75,23 +80,37 @@ export default function StoryDetailPage({ user }) {
   }
 
   if (!StoryDetail) return <h3>Your story details will display soon</h3>;
-
+  console.log(StoryDetail)
   return (
     <section className="detail-container">
       <div className="story-details">
+        <div className="pic-background"></div>
         <img src={StoryDetail.photo_url} alt="Story" className="story-image" />
-        <h1 className="title">{StoryDetail.title}</h1>
-        <p className="content">{StoryDetail.content}</p>
+        <h1 className="title-de">{StoryDetail.title}</h1>          
+        <Link to={`/story/${StoryDetail.id}/review/new`} className="btn-warn"><FontAwesomeIcon icon={faComment} />
+          </Link>
+        <h1 className="intro">Introduction</h1>
+        <p className="content-des">{StoryDetail.description}</p>
+        <h1 className="intro">Story</h1>
+        <p className="content-s">{StoryDetail.content}</p>
         {/* <button className="sbtn"  onClick={handleLike} disabled={userAlreadyLiked} >❤️ {userAlreadyLiked ? "Liked" : "Like"} ({likes.length})</button> */}
 
         <div className="story-actions">
-          <Link to={`/story/${StoryDetail.id}/review/new`} className="btn-warn">Review</Link>
-          <Link to={`/story/edit/${StoryDetail.id}`} className="btn-warn">Edit</Link>
-          <Link to={`/story/confirm_delete/${StoryDetail.id}`} className="btn-danger">Delete</Link>
+
+          {user.id != StoryDetail.author.id ? 
+          <></>
+          :
+          <>
+            <Link to={`/story/edit/${StoryDetail.id}`} className="btn-warn"><FontAwesomeIcon icon={faPenToSquare} />
+            </Link>
+            <Link to={`/story/confirm_delete/${StoryDetail.id}`} className="btn-danger"><FontAwesomeIcon icon={faTrashCan} />
+            </Link>
+          </>
+          }
         </div>
       </div>
 
-
+{/* 
       <div>
         <textarea
           rows={4}
@@ -107,7 +126,7 @@ export default function StoryDetailPage({ user }) {
             Your browser does not support the audio element.
           </audio>
         )}
-      </div>
+      </div> */}
     </section>
   );
 }
