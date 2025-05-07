@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import "./styles.css";
 import * as storyAPI from "../../utilities/story-api";
+import land from "../../assets/images/land.png";
+
 
 export default function StoryFormPage({ createStory, editStory, deleteStory, user }) {
     const initialState = { title: "", description: "", content: "", photoUrl: "" };
@@ -98,10 +100,11 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
         if (!currStory) return <h1>Loading...</h1>;
         return (
             <>
-                <div className="page-header"><h1>Delete Story?</h1></div>
-                <h2>Are you sure you want to delete "{currStory.title}"?</h2>
-                <form onSubmit={handleDelete}>
-                    <Link to={`/story/${currStory.id}`} className="btn-secondary">Cancel</Link>
+                <div className="page-header2"><h1 className="del">Delete Story?</h1></div>
+                <h2 className="del-conf">Are you sure you want to delete "{currStory.title}"?</h2>
+                <img src={land} alt="land" className="storyLand-image1" />
+                <form className="del-form" onSubmit={handleDelete}>
+                    <Link to={`/story/${currStory.id}`} className="btn-secondary1">Cancel</Link>
                     <button type="submit" className="submit-yes">Yes - Delete!</button>
                 </form>
             </>
@@ -113,16 +116,17 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
         if (editStory && !currStory) return <h1>Loading...</h1>;
         return (
             <>
-                <div className="page-header">{editStory ? <h1>Edit "{currStory?.title}"</h1> : <h1 className="add">Add a Story</h1>}</div>
+                <div className="page-header1">{editStory ? <h1 className="add1">Edit "{currStory?.title}"</h1> : <h1 className="add2">Add a Story</h1>}</div>
+                <img src={land} alt="land" className="storyLand-image1" />
                 <form className="form-container" onSubmit={handleSubmit}>
                     {!editStory && (
-                        <div><label htmlFor="id_title"></label><input className="in" placeholder="Title:" value={formData.title} type="text" name="title" required id="id_title" onChange={handleChange} /></div>
+                        <div><label htmlFor="id_title"></label><input className="in-edit" placeholder="Title:" value={formData.title} type="text" name="title" required id="id_title" onChange={handleChange} /></div>
                     )}
-                    <input type="text" value={formData.photoUrl} onChange={handleChange} placeholder="Enter image URL" name="photo_url"/>
+                    <input type="text" className="fix-url" value={formData.photoUrl} onChange={handleChange} placeholder="Enter image URL" name="photo_url"/>
                     
                     <div><label htmlFor="id_description"></label><textarea placeholder="Description:" className="text" value={formData.description} name="description" maxLength="250" required id="id_description" onChange={handleChange}></textarea></div>
                     <div><label htmlFor="id_content"></label><textarea placeholder="Content:" className="text" value={formData.content} name="content"  required id="id_content" onChange={handleChange}></textarea></div>
-                    <button type="submit" className="btn-end-submit">Submit!</button>
+                    <button type="submit" className="btn-end-submit">Submit !</button>
                 </form>
             </>
         );

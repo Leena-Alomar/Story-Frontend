@@ -2,33 +2,20 @@ import "./styles.css";
 import { useState, useEffect } from "react";
 import Categories from '../../components/categories/categories';
 import { Routes, Route, useNavigate } from "react-router-dom";
+// import fall from "../../assets/images/fall.png";
 
 
 import * as categoryAPI from "../../utilities/category-api";
 import * as storyAPI from "../../utilities/story-api";
-// import * as authorAPI from "../../utilities/author-api";
+
 
 
 
 export default function CategoryIndexPage() {
   const [allCategories, setAllCategories] = useState([]);
   const [allStory, setAllStory] = useState([]);
-  const [getAllAuthor, setAllAuthor] = useState([]);
   const [user, setUser] = useState(null);
 
-
-
-  useEffect(() => {
-    async function getAllAuthor() {
-      try {
-        const authorData = await authorAPI.index();
-        setAllAuthor(authorData);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getAllAuthor();
-  }, []);
 
 
   useEffect(() => {
@@ -66,7 +53,7 @@ export default function CategoryIndexPage() {
 
   return (
     <section className="index-card-container">
-
+      {/* <img src={fall} alt="Story" className="fall-image" /> */}
       {groupedStories.map(cat => (
         <Categories key={cat.id} category={cat} />
       ))}

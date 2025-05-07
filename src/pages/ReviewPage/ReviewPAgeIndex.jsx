@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as reviewAPI from "../../utilities/review-api";
 import "./styles.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan} from '@fortawesome/free-solid-svg-icons';
+// import land from "../../assets/images/land.png";
 
 const ReviewPAgeIndex = () => {
     const { id: storyId } = useParams();
@@ -34,10 +38,10 @@ const ReviewPAgeIndex = () => {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        if (!formData.reviewContent.trim()) {
-            console.log("Review content is empty.");
-            return;
-        }
+        // if (!formData.reviewContent.trim()) {
+        //     console.log("Review content is empty.");
+        //     return;
+        // }
 
         try {
             const newReviewData = { content: formData.reviewContent, story_id: storyId };
@@ -67,25 +71,27 @@ const ReviewPAgeIndex = () => {
         }
 
     return (
-        <div>
+        <div> 
+            {/* <img src={land} alt="Story" className="review-image" /> */}
             <section className="review">
             <div className="scroll">
-                <textarea  className="text" name="reviewContent" placeholder="Enter your review here..." value={formData.reviewContent} onChange={handleChange}></textarea>
-                <button className="sbtn" onClick={handleSubmit}>Submit</button>
-               
-            </div>
+                <textarea  className="text-re" name="reviewContent" placeholder="Enter your review here..." value={formData.reviewContent} onChange={handleChange}></textarea>
+                <button className="sbtn1" onClick={handleSubmit}><FontAwesomeIcon icon={faPaperPlane} /></button>
+              
+            </div> 
+           
             <div className="reviews">
-                <h2 className='title-review'>Reviews</h2>
+                <h2 className='title-review'>Comments</h2>
                 {getAllReviews.length > 0 ? (
                 <ul>
                 {getAllReviews.map((review) => (
                     <li key={review.id} className="review-item">
-                         <p className="des">{review.user_review.username}</p>
-                        <p className='con'>{review.content}</p> <button  className="sbtn" onClick={(e) =>{handleDelete(e, review.id)}}>Delete</button>
+                         <p className="comment">{review.user_review.username}</p>
+                        <p className='con'>{review.content}</p> <button  className="sbtn2" onClick={(e) =>{handleDelete(e, review.id)}}><FontAwesomeIcon icon={faTrashCan} /></button>
                     </li> ))}
                 </ul>
                 ) : (
-                    <p>No reviews yet.</p>
+                    <p className='no-comm'>No comments yet.</p>
                 )}
             </div>
             </section>

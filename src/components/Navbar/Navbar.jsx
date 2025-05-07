@@ -2,7 +2,6 @@
 import "./styles.css";
 import { useNavigate, Link } from "react-router-dom"; 
 
-
 // APIs
 import * as usersAPI from "../../utilities/users-api";
 
@@ -15,37 +14,28 @@ export default function Navbar({ user, setUser }) {
     setUser();
     navigate("/");
   }
-  if (user) {
-    return (
-        <>
+
+  return (
+    <>
+    { user ?
+      <>
         <ul className="navul">
           <li>
             <Link className="links" to="/category">Stories</Link>
-          </li> 
-          <li>
             <Link className="links" to="/category">Favorites</Link>
-          </li>
-          <li>
-            <form id="logout-form" onSubmit={handleLogout}>
-              <button className="submit" type="submit">Log out</button>
-            </form>
-          </li>
+          </li> 
         </ul>
-
-        </>
-    )
-}
-
-  if (!user) {
-    return (
-      <>   
-      
-        <Link className="links1" to="/welcome">Home</Link>
-        <Link className="links1" to="">Contact</Link>
-        <Link className="links1" to="">About</Link>
+        <form id="logout-form" onSubmit={handleLogout}>
+          <button className="submit-logout" type="submit">Log out</button>
+        </form>
       </>
-    );
-  }
-
-
-}
+      :
+      <> 
+        <Link className="links1" to="/category">Home</Link>
+        <Link className="links1" to="/category">Contact</Link>
+        <Link className="links1" to="/category">About</Link>
+      </>
+    }
+    
+</>
+)}

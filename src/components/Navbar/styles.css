@@ -1,14 +1,16 @@
 .navul {
     display: flex;
     overflow: hidden;
-    width: 50vw;
-    height: 35px;
+    width: 100vw;
+    height: 100px;
     justify-content: space-evenly;
     border-radius: 30px;
     list-style-type: none;
     font-family: 'Quicksand';
-    margin-left: 300px;
-    background-color: rgb(255, 255, 255);
+    margin-left: -60px;
+    margin-top: -15px;
+    background-color: rgb(253, 218, 212);
+    margin-bottom: 100px;
 }
 
 li {
@@ -25,22 +27,25 @@ li a{
     color: rgb(255, 255, 255);
 }
 
-.submit{
+.submit-logout{
 
     border-radius: 30px;
-    background-color: rgb(255, 235, 169);
+    background: none;
     border-style: none;
     height: 60px;
     width: 70px;
     margin-top: -10px;
     color: #000000;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: 'Quicksand';
+    margin-top: 50px;
 }
 
 .links{
 
     color: #000000;
+    margin-top: 30px;
 }
 
 .links2 {

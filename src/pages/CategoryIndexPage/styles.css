@@ -5,6 +5,6 @@
     height: 190vh;               
     width: 100vw;               
     z-index: -1;               
-    background: linear-gradient(to top, rgb(255, 255, 255), rgb(248, 180, 248));
+    /* background: linear-gradient(to top, rgb(255, 255, 255), rgb(248, 180, 248)); */
   }
   

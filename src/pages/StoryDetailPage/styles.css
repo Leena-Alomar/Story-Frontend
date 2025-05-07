@@ -1,35 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Darumadrop+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Exa:wght@100..900&family=Lexend+Mega:wght@100..900&family=Lilita+One&family=Limelight&family=Luckiest+Guy&family=Madimi+One&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sigmar&family=Titan+One&family=Ultra&family=VT323&family=Varela+Round&display=swap');
-.detail-container{
 
+
+.detail-container {
+    position: relative;
+    z-index: 2;            /* Ensures the detail container is on top of the background image */
+    background-color: white;
     width: 400px;
     height: 600px;
     border-radius: 30px;
+    margin: 20px auto 50px auto;  
     text-align: center;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    margin-left: 450px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     overflow-y: scroll;
-
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);        
+    -webkit-backdrop-filter: blur(4px); 
+    scrollbar-color: #a97cc3 #e0c8f3;
 }
+
+
 
 .title-de{
     margin-top: 40px;
     font-size: 19px;
     font-family: 'Rubik';
     font-weight: 600;
-    margin-bottom: -15px;
+    margin-bottom: -5px;
 
 }
 
-.btn-warn{
+.btn-warn1{
 
    color: #000;
     height: 200px;
     width: 150px;
-    margin-left: 250px;
+    margin-left: 230px;
+
 }
 
+.btn-warn2{
+
+    color: #000;
+    margin-left: 10px;
+ }
 .btn-danger{
-    background-color: red;
+    color: #000;
+    margin-right: -60px;
+    margin-left: 10px;
+
 }
 
 .content-des{
@@ -41,19 +61,6 @@
     text-align: left;
 }
 
-.pic-background{
-
-
-    background-image: linear-gradient(to bottom, #232323, #403f40, #5f5d5e, #817d7e, #a49f9f);
-    height: 160px;
-    z-index: -1;
-    margin-bottom: -110px;
-}
-.banner-image {
-    height: 190px;
-    width: 400px;
-    object-fit: cover;
-}
 
 .content-s{
     color: #000;
@@ -75,3 +82,17 @@
     margin-left: 30px;
     
 }
+
+.land-image {
+    position: fixed;       /* Keeps the image fixed at the top of the screen */
+    top: 0;                /* Aligns the image at the top of the screen */
+    left: 0;
+    width: 100vw;          /* Full width of the viewport */
+    height: 130vh;         /* Height is set to 110% of the viewport height */
+    object-fit: cover;     /* Ensures the image covers the area */
+    z-index: -1;           /* Keeps the image behind the content */
+
+}
+
+
+  
