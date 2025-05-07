@@ -5,7 +5,7 @@ import "./styles.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan} from '@fortawesome/free-solid-svg-icons';
-// import land from "../../assets/images/land.png";
+import land from "../../assets/images/land.png";
 
 const ReviewPAgeIndex = () => {
     const { id: storyId } = useParams();
@@ -72,7 +72,7 @@ const ReviewPAgeIndex = () => {
 
     return (
         <div> 
-            {/* <img src={land} alt="Story" className="review-image" /> */}
+            <img src={land} alt="Story" className="review-image" />
             <section className="review">
             <div className="scroll">
                 <textarea  className="text-re" name="reviewContent" placeholder="Enter your review here..." value={formData.reviewContent} onChange={handleChange}></textarea>

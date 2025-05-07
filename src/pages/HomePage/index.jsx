@@ -2,6 +2,8 @@
 import "./styles.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 // IMAGES
 import Reading from "../../assets/images/reading.png";
@@ -38,7 +40,15 @@ export default function HomePage({ user, setUser }) {
     {!user &&
       <section>
         <form onSubmit={handleLogin} className="form-container-login">
+        <div className="form-header">
+          <FontAwesomeIcon
+            icon={faCircleChevronLeft}
+            className="prev"
+            onClick={() => navigate("/welcome")}
+            style={{ cursor: "pointer" }}
+            />
           <h1 className="login">Weclome Back !</h1>
+        </div>
           <p className="login-par">Your next story is just a click away,Embrace your imagination and <br></br> begin crafting the next chapter of your journey. </p>
           <p>
             <label htmlFor="id_username"></label>

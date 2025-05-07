@@ -2,61 +2,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Darumadrop+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Exa:wght@100..900&family=Lexend+Mega:wght@100..900&family=Lilita+One&family=Limelight&family=Luckiest+Guy&family=Madimi+One&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sigmar&family=Titan+One&family=Ultra&family=VT323&family=Varela+Round&display=swap');
 
 .welcome-div{
-  position: absolute;          
-  top: 0;
-  left: 0;
-  height: 100vh;               
-  width: 100vw;               
-  z-index: -1;               
+  min-height: 100vh;               
+  min-width: 100vw;
+  position: relative;                           
   background: linear-gradient(to top, rgb(255, 255, 255), rgb(207, 175, 207));
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
-.Read1 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 500px;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    z-index: 0;
-    margin-right: 20px;
-    margin-top: 80px;
-  }
+.read1 {
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+  max-height: 550px;
+  max-width: 550px;
+}
+
+.read2 {
+  position: absolute;
+  top: 10px;
+  left: -35px;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 120px;
+  z-index: 10;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.register-btns {
+  padding: 20px;
+}
+
+.register-btns > button {
+  margin: 10px;
+}
   
   .head {
-    position: absolute; 
-    top: 240px;          
-    margin-left: 160px;
     color: rgb(44, 45, 65);
     font-family: 'Rubik';
-    z-index: 2;
     font-size: 50px;
     font-weight: 500;
+
+
   }
-  .par{
-    z-index: 1;
-    font-size: 14px;
-    font-family: 'Rubik';
-    font-weight: 300;
-    position: absolute;
-    text-align: center;
-    margin-left: 120px;
-    margin-top: -10px;
-  }
-  
-  .btnn {
-    position: absolute;     
-    top: 170px;
-    left: 230px;
-    display: flex;
-    flex-direction: row; 
-    gap: 10px;               
-    z-index: 2;
-    margin-top: 280px;
-    margin-right:240px ;
-  }
-  
 
 .btn1{
   background-color: rgb(87, 55, 97);
@@ -74,7 +70,7 @@
 
 }
 
-.btn2{
+.btn2 {
   background-color: rgb(255, 255, 255);
   color: rgb(104, 43, 81);
   font-weight: 700;
@@ -84,34 +80,13 @@
   width: 150px;
   border-style: none;
   font-size: 19px;
- box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
-}
-.Read {
-  position: absolute; 
-  margin-top: -370px;
-  margin-left: -25px;
-  height: 310px;
-  width: 330px;
-  z-index: 1;             
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.book-con {
-  /* background-color: rgb(207, 107, 194); */
-  height: 550px;
-  width: 430px;
-  margin-left: 900px;
-  transform: rotate(40deg);
-  margin-top: -180px;
-}
-
-.book2-con {
-  background-color: rgb(252, 214, 241);
-  height: 330px;
-  width: 330px;
-  position: absolute;   
-  margin-left: -60px;
-  margin-top: -180px;
-  transform: rotate(40deg);
-  z-index: 0;             
+.par{
+  font-family: 'Rubik';
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: -5px;
+  margin-bottom: 40px;
 }

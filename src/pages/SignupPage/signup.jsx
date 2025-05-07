@@ -2,6 +2,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./styles.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+
 // IMAGES
 import Reading from "../../assets/images/reading.png";
 // APIs
@@ -56,8 +60,16 @@ export default function SignupPage({ setUser }) {
             <img className="Reading" src={Reading} alt="read1 icon" />
          
         </div>
-        <form onSubmit={handleSubmit} className="form-container-signup">  
-             <h1 className="signup">Get Started !</h1>
+        <form onSubmit={handleSubmit} className="form-container-signup">
+            <div className="form-header">
+                <FontAwesomeIcon
+                    icon={faCircleChevronLeft}
+                    className="prev1"
+                    onClick={() => navigate("/welcome")}
+                    style={{ cursor: "pointer" }}
+                /> 
+                <h1 className="signup">Get Started !</h1>
+            </div>
             <table>
                 <tbody>
                     <tr>

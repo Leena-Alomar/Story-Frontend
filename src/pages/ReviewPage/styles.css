@@ -13,7 +13,6 @@
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);        
     -webkit-backdrop-filter: blur(4px); 
-
 }
 
 .scroll {
@@ -22,6 +21,8 @@
     overflow-y: scroll;
     height: 600px;
     width: 400px;
+    /* background-color: white; */
+
 }
 
 .text-re{

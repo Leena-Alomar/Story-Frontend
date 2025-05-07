@@ -30,7 +30,7 @@
     -webkit-backdrop-filter: blur(4px);  
     align-items: center;
     margin-left: 100px;
-    margin-top: -500px;
+    margin-top: -450px;
 }
 
 .login{
@@ -40,7 +40,7 @@
     font-size: 38px;
     color: rgb(33, 34, 65);
     margin-bottom: 3px;
-  
+    margin-top: 0px;
 }
 
 .in6{
@@ -88,4 +88,11 @@
     margin-top: -15px;
     padding: 0 20px;
     font-weight: 300;
+}
+
+.prev{
+    /* margin-left: -360px; */
+    height: 30px;
+    margin-top: 10px;
+    color: #6b5275;
 }
