@@ -8,7 +8,8 @@ const Welcome = () => {
   const navigate = useNavigate();
   const [btnOp, setBtnOp] = useState("");
 
-  function handleBtnClick(des) {
+  function handleBtnClick(e,des) {
+    e.preventDefault()
     navigate(des);
   }
 
@@ -20,10 +21,10 @@ const Welcome = () => {
       <h1 className="head">Welcome To My Story</h1>
       <p className="par">Tell your stories, connect with readers,and explore a world ofcreativity, Start writing or<br></br>   dive into stories from writers around the globe.</p>
       <div className="btnn">
-        <button className="btn1" onClick={() => handleBtnClick('/home')}>Login</button>
-        <button className="btn2" onClick={() => handleBtnClick('/signup')}>SignUp</button>
+        <button className="btn1" onClick={(e) => handleBtnClick(e,'/home')}>Login</button>
+        <button className="btn2" onClick={(e) => handleBtnClick(e,'/signup')}>SignUp</button>
       </div>
-      <div className="book2-con"> </div>
+      {/* <div className="book2-con"> </div> */}
       <img className="Read" src={Read2} alt="read icon" />
     </div>
   );

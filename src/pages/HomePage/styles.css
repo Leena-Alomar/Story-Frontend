@@ -6,7 +6,7 @@
 }
 
 .first {
-  background: linear-gradient(to left, rgb(255, 255, 255), rgb(248, 152, 248));
+  background: linear-gradient(to left, rgb(255, 255, 255), rgb(222, 143, 233));
   min-height: 110vh;
   min-width: 100vw;
   background-size: cover;

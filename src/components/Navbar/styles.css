@@ -2,7 +2,7 @@
     display: flex;
     overflow: hidden;
     width: 100vw;
-    height: 100px;
+    height: 30px;
     justify-content: space-evenly;
     border-radius: 30px;
     list-style-type: none;

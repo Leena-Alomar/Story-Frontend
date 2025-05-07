@@ -22,18 +22,18 @@ export default function Navbar({ user, setUser }) {
         <ul className="navul">
           <li>
             <Link className="links" to="/category">Stories</Link>
-            <Link className="links" to="/category">Favorites</Link>
-          </li> 
-        </ul>
-        <form id="logout-form" onSubmit={handleLogout}>
+            <Link className="links" to="/about">About</Link>    
+            <form id="logout-form" onSubmit={handleLogout}>
           <button className="submit-logout" type="submit">Log out</button>
         </form>
+          </li> 
+        </ul>
+
       </>
       :
       <> 
         <Link className="links1" to="/category">Home</Link>
-        <Link className="links1" to="/category">Contact</Link>
-        <Link className="links1" to="/category">About</Link>
+        <Link className="links1" to="/about">About</Link>
       </>
     }
     

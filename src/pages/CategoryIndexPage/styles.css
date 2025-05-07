@@ -2,9 +2,9 @@
     position: absolute;          
     top: 0;
     left: 0;
-    height: 190vh;               
+    height: 220vh;               
     width: 100vw;               
     z-index: -1;               
-    /* background: linear-gradient(to top, rgb(255, 255, 255), rgb(248, 180, 248)); */
+    background: linear-gradient(to top, rgb(245, 186, 237), rgb(172, 134, 172));
   }
   

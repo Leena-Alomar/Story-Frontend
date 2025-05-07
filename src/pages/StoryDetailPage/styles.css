@@ -3,7 +3,7 @@
 
 .detail-container {
     position: relative;
-    z-index: 2;            /* Ensures the detail container is on top of the background image */
+    z-index: 2;         
     background-color: white;
     width: 400px;
     height: 600px;
@@ -23,11 +23,11 @@
 
 
 .title-de{
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 19px;
     font-family: 'Rubik';
     font-weight: 600;
-    margin-bottom: -5px;
+    margin-bottom: 5px;
 
 }
 
@@ -84,15 +84,24 @@
 }
 
 .land-image {
-    position: fixed;       /* Keeps the image fixed at the top of the screen */
-    top: 0;                /* Aligns the image at the top of the screen */
+    position: fixed;       
+    top: 0;              
     left: 0;
-    width: 100vw;          /* Full width of the viewport */
-    height: 130vh;         /* Height is set to 110% of the viewport height */
-    object-fit: cover;     /* Ensures the image covers the area */
-    z-index: -1;           /* Keeps the image behind the content */
+    width: 100vw;          
+    height: 130vh;         
+    object-fit: cover;     
+    z-index: -1;        
+      
 
 }
 
-
-  
+.back-image {
+    position: absolute;
+    top: -35px;
+    width: 30vw;
+    height: 210px;
+    filter: blur(4px);
+    margin-bottom: 20px;
+    left: 0;
+    z-index: -3;
+}

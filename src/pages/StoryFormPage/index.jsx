@@ -60,7 +60,6 @@ export default function StoryFormPage({ createStory, editStory, deleteStory, use
             let catId
             categoryId ? catId = categoryId : catId = currStory.category 
             const newStoryData = { ...formData, category: catId};
-            // const newStoryData = { ...formData, category: categoryId };
             const newStory = editStory
                 ? await storyAPI.update(newStoryData, currStory.id, user.token)
                 : await storyAPI.create(newStoryData, categoryId, user.token);

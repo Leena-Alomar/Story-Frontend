@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./styles.css";
 import * as storyAPI from "../../utilities/story-api";
-// import * as likeAPI from "../../utilities/like-api"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faPenToSquare , faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import land from "../../assets/images/land.png";
@@ -14,16 +13,7 @@ export default function StoryDetailPage({ user }) {
   const { id } = useParams();
   const [text, setText] = useState('');
   const [audioUrl, setAudioUrl] = useState(null);
-  // const [likes, setLikes] = useState([]); 
 
-  // const fetchLikes = async () => {
-  //   try {
-  //     const data = await likeAPI.getLikesByStory(id);
-  //     setLikes(data);
-  //   } catch (err) {
-  //     console.error("Error fetching likes:", err);
-  //   }
-  // };
 
   const handleConvert = async () => {
     try {
@@ -43,24 +33,13 @@ export default function StoryDetailPage({ user }) {
     }
   };
 
-  // const handleLike = async () => {
-  //   try {
-  //     const newLikeData = { story_liked: id };
-  //     await likeAPI.createLike(newLikeData);
-  //     fetchLikes(); 
-  //   } catch (err) {
-  //     console.error("Error submitting like:", err);
-  //   }
-  // };
-
-  // const userAlreadyLiked = likes.some(like => like.user_fav?.id === user?.id);
 
   useEffect(() => {
     async function getAndSetDetail() {
       try {
         const storyData = await storyAPI.show(id);
         setStoryDetail(storyData);
-        // fetchLikes();
+
       } catch (err) {
         console.log(err);
         setStoryDetail(null);
@@ -87,7 +66,7 @@ export default function StoryDetailPage({ user }) {
     <section className="detail-container"> 
     
       <div className="story-details">
-        <div className="pic-background"></div>
+        <div className="pic-background"><img src={StoryDetail.photo_url} alt="Story" className="back-image" /></div>
         <img src={StoryDetail.photo_url} alt="Story" className="story-image" />
         <h1 className="title-de">{StoryDetail.title}</h1>          
         <Link to={`/story/${StoryDetail.id}/review/new`} className="btn-warn1"><FontAwesomeIcon icon={faComment} />
@@ -100,8 +79,7 @@ export default function StoryDetailPage({ user }) {
         <p className="content-des">{StoryDetail.description}</p>
         <h1 className="intro">Story</h1>
         <p className="content-s">{StoryDetail.content}</p>
-        {/* <button className="sbtn"  onClick={handleLike} disabled={userAlreadyLiked} >❤️ {userAlreadyLiked ? "Liked" : "Like"} ({likes.length})</button> */}
-
+        
         <div className="story-actions">
 
           {user.id != StoryDetail.author.id ? 
