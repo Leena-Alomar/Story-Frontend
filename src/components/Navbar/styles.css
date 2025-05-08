@@ -1,17 +1,3 @@
-/* .navul {
-    display: flex;
-    overflow: hidden;
-    width: 60vw;
-    height: 30px;
-    justify-content: space-evenly;
-    border-radius: 30px;
-    list-style-type: none;
-    font-family: 'Quicksand';
-    margin-left: 260px;
-    margin-top: 10px;
-    background-color: rgb(255, 255, 255);
-    margin-bottom: -30px;
-} */
 
 .navul {
     display: flex;
@@ -20,8 +6,8 @@
     font-family: 'Quicksand';
     height: 30px;
     margin-top: 10px;
+    
 }
-
 
 
 li {
@@ -31,7 +17,8 @@ li {
     font-size: 20px;
     font-weight: 80;
     color: rgb(255, 255, 255);
-    font-weight: 330;
+    font-weight: 330; 
+
 }
 
 li a{
@@ -48,34 +35,33 @@ li a{
     width: 70px;
     color: rgb(255, 255, 255);
     background-color: #000000;
-    /* background: none; */
-    /* border-style: none; */
-    /* height: 60px; */
-    /* width: 70px; */
-    /* margin-top: -10px; */
-    /* color: #000000; */
-    /* font-size: 83px; */
-    /* font-weight: 500; */
-    /* font-family: 'Quicksand'; */
-    /* margin-top: 50px; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
+.submit-logout:hover{
+    background-color: rgb(82, 82, 82);
+}
 .links{
 
     color: #000000;
     margin-top: 30px;
 }
 
-.links2 {
+.links {
 
     padding: 10px;
     margin-left: 20px;
     color: #000000;
+    font-weight: 520;
+
+  }
+  .links:hover{
+    color: #5c5a5a;
   }
   
-  .links2 a {
+  /* .links2 a {
     text-decoration: none;
     color: #000000;
-    font-weight: 600;
+    font-weight: 800;
   }
-  
+   */

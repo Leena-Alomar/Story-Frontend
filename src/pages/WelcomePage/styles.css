@@ -54,21 +54,22 @@
 
   }
 
-.btn1{
-  background-color: rgb(87, 55, 97);
-  height: 37px;
-  width: 130px;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 30px;
-  height: 40px;
-  width: 150px;
-  border-style: none;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
-}
+  .btn1 {
+    background-color: rgb(87, 55, 97);
+    height: 40px;
+    width: 150px;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 30px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+  
+  .btn1:hover {
+    background-color: rgb(120, 101, 126);
+  }
+  
 
 .btn2 {
   background-color: rgb(255, 255, 255);
@@ -81,6 +82,9 @@
   border-style: none;
   font-size: 19px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.btn2:hover {
+  background-color: rgb(238, 209, 248);
 }
 
 .par{

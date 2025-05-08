@@ -1,13 +1,65 @@
-# React + Vite
+# 🖥️ Tales Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend** of the Tales platform — a space where users can read, write, categorize, and review stories. It connects to the backend via RESTful APIs and delivers a responsive, clean user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Table of Contents
 
-## Expanding the ESLint configuration
+- [Commits](#commits)
+- [Project Description](#project-description)
+- [Tech Stack](#tech-stack)
+- [Backend Repository](#backend-repository)
+- [Deployed Site](#deployed-site)
+- [Installation](#installation)
+- [Icebox Features](#icebox-features)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Story-Frontend
+---
+
+## ✅ Commits
+
+- ✅ **22 meaningful commits** covering UI development, routing logic, and API integrations.
+
+---
+
+## 📖 Project Description
+
+The **Tales frontend** is a single-page application (SPA) that enables users to:
+
+- View a list of available stories
+- Read full stories with category details
+- Submit and edit their own stories
+- Post, update, and delete reviews
+- Navigate seamlessly using a user-friendly interface
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: React.js
+- **Routing**: React Router
+- **State Management**: Context API / Redux (based on your implementation)
+- **API Communication**: Axios / Fetch
+- **Styling**: Tailwind CSS / CSS Modules / Styled Components
+- **Build Tool**: Vite / Webpack / CRA (update based on your setup)
+
+---
+
+## 🔗 Backend Repository
+
+[Backend Repo](https://github.com/Leena-Alomar/Story-Backend)
+
+---
+
+## 🌐 Link to Deployed Site
+
+[Deployed App](//)
+
+---
+
+## ⚙️ Installation Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/tales-frontend.git
+   cd tales-frontend
