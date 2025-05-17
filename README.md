@@ -45,10 +45,10 @@ Built with React and connected to a Django backend, this project demonstrates fu
 |--------------------|-----------------------------------------|
 | Framework          | React.js                                |
 | Routing            | React Router                            |
-| State Management   | Context API / Redux *(based on setup)* |
+| State Management   | Context API  |
 | API Communication  | Axios / Fetch                           |
-| Styling            | Tailwind CSS / CSS Modules              |
-| Build Tool         | Vite / Webpack / CRA *(specify yours)*  |
+| Styling            | CSS Modules              |
+| Build Tool         | Vite  |
 
 ---
 
