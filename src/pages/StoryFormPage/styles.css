@@ -24,11 +24,10 @@
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-
+    margin-left: 450px;
 }
 
 .add1 {
-
     text-align: center;
     font-size: 26px;
     font-family: 'Rubik';
@@ -36,15 +35,18 @@
     border-radius: 15px;
     z-index: 10;
     padding: 8px 16px;
+    margin: 0 auto 0 auto;
+    display: block;
     margin-bottom: -40px;
-    
+    margin-left: 550px; 
 }
+
 
 
 .add2 {
     position: absolute;
     top: 50px; 
-    left: 50%;
+    left: 76%;
     transform: translateX(-50%);
     font-size: 26px;
     font-family: 'Rubik';
@@ -180,14 +182,14 @@
 .del {
     position: absolute;
     top: 50px; 
-    left: 50%;
+    left: 76%;
     transform: translateX(-50%);
     font-size: 28px;
     font-family: 'Rubik';
     font-weight: 500;
     border-radius: 15px;
     z-index: 10;
-    padding: 8px 16px;
+    padding: 8px 14px;
     margin-bottom: 70px;
 }
 
@@ -218,4 +220,5 @@
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    margin-left: 450px;
 }

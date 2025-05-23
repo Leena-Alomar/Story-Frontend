@@ -12,7 +12,7 @@
   background-size: cover;
   flex-wrap: wrap;
   position: absolute;
-  margin-top: -20px;
+  top:-1px;
   margin-left: -10px;
 }
 

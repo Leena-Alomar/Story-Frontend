@@ -13,15 +13,15 @@
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);        
     -webkit-backdrop-filter: blur(4px); 
+    margin-top: 50px;
 }
 
 .scroll {
-    /* display: flex;
-    flex-direction: column; */
+    
     overflow-y: scroll;
     height: 600px;
     width: 400px;
-    /* background-color: white; */
+
 
 }
 
