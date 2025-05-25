@@ -35,13 +35,9 @@ const ReviewPAgeIndex = () => {
         });
     };
 
-
+    
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        // if (!formData.reviewContent.trim()) {
-        //     console.log("Review content is empty.");
-        //     return;
-        // }
 
         try {
             const newReviewData = { content: formData.reviewContent, story_id: storyId };

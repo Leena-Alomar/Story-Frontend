@@ -23,6 +23,7 @@ export default function SignupPage({ setUser }) {
         checkErrors(evt);
     }
 
+
     function checkErrors({ target }) {
         const updateErrors = { ...errors }
 
